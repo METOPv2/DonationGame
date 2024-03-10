@@ -1,0 +1,9 @@
+{
+    "[lua]": {
+        "editor.defaultFormatter": "JohnnyMorganz.stylua",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true
+    },
+    "testez-companion.runTestsOnSave": true
+}
