@@ -35,6 +35,7 @@ function PlayerDataService:ReconcilePlayerData(playerData)
 end
 
 function PlayerDataService:InitLeaderstatsByPlayerData(playerData)
+	assert(type(playerData) == "table", "Player data must be a table.")
 	local Leaderstats = Instance.new("Folder")
 	Leaderstats.Name = "leaderstats"
 
@@ -57,10 +58,12 @@ function PlayerDataService:InitLeaderstatsByPlayerData(playerData)
 end
 
 function PlayerDataService:ConnectMetatableToPlayerData(playerData)
+	assert(type(playerData) == "table", "Player data must be a table.")
 	return setmetatable(playerData, PlayerDataMetatable)
 end
 
 function PlayerDataService:InitPlayerData(playerData)
+	assert(type(playerData) == "table", "Player data must be a table.")
 	if playerData == nil then
 		playerData = PlayerDataService.PlayerDataTemplate
 	else
