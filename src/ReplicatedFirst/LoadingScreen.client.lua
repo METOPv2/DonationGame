@@ -6,7 +6,7 @@ local PlayerGui = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 local LoadingScreenGui = Instance.new("ScreenGui")
 LoadingScreenGui.Name = "Loading"
 LoadingScreenGui.IgnoreGuiInset = true
-LoadingScreenGui.DisplayOrder = math.huge
+LoadingScreenGui.DisplayOrder = 100
 LoadingScreenGui.ResetOnSpawn = false
 LoadingScreenGui.Parent = PlayerGui
 

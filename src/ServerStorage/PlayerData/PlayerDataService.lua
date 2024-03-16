@@ -63,7 +63,6 @@ function PlayerDataService:ConnectMetatableToPlayerData(playerData)
 end
 
 function PlayerDataService:InitPlayerData(playerData)
-	assert(type(playerData) == "table", "Player data must be a table.")
 	if playerData == nil then
 		playerData = PlayerDataService.PlayerDataTemplate
 	else
