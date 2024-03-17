@@ -9,13 +9,14 @@ local PlayerDataService = {
 		Likes = 0,
 		Visits = 0,
 		PlayTime = 0,
+		Buildings = {},
 	},
 }
 
 function PlayerDataService:GetPlayerDataFromDataStore(userId)
 	assert(userId, "User id is required.")
 	assert(type(userId) == "number", "User id must be a number.")
-	return PlayerDataStore:GetAsync(userId)
+	return PlayerDataStore:GetAsync(tostring(userId))
 end
 
 function PlayerDataService:GetPlayerDataFromServer(userId)
@@ -95,7 +96,7 @@ function PlayerDataService:SavePlayerDataToDataStore(userId, playerData)
 	assert(userId, "User id is required.")
 	assert(type(userId) == "number", "User id must be a number.")
 	assert(type(playerData) == "table", "Player data must be a table.")
-	PlayerDataStore:SetAsync(userId, playerData)
+	PlayerDataStore:SetAsync(tostring(userId), playerData)
 end
 
 return PlayerDataService

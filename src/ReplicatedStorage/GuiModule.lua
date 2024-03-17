@@ -8,6 +8,8 @@ local Profile = game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild(
 local ButtonColorTweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 local ButtonSizeTweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
 
+game.Players.LocalPlayer:SetAttribute("BuildModeEnabled", false)
+
 local module = {
 	IsShopEnabled = false,
 	IsBuildModeEnabled = false,
@@ -51,13 +53,20 @@ function module.BuildModeLogic()
 end
 
 function module.CloseBuildMode()
+	game.Players.LocalPlayer:SetAttribute("BuildModeEnabled", false)
 	module.IsBuildModeEnabled = false
-	TweenService:Create(BuildMode.Frame, BuildModeTweenInfo, { Position = UDim2.new(0.5, 0, 1, 104) }):Play()
+	TweenService:Create(BuildMode.Frame, BuildModeTweenInfo, { Position = UDim2.new(0.5, 0, 2, 0) }):Play()
+	TweenService:Create(BuildMode.Materials, BuildModeTweenInfo, { Position = UDim2.new(1, 365, 1, -220) }):Play()
+	TweenService:Create(BuildMode.Colors, BuildModeTweenInfo, { Position = UDim2.new(1, 365, 1, -10) }):Play()
 end
 
 function module.OpenBuildMode()
 	module.IsBuildModeEnabled = true
 	TweenService:Create(BuildMode.Frame, BuildModeTweenInfo, { Position = UDim2.new(0.5, 0, 1, -10) }):Play()
+	task.wait(0.2)
+	TweenService:Create(BuildMode.Colors, BuildModeTweenInfo, { Position = UDim2.new(1, -10, 1, -10) }):Play()
+	task.wait(0.1)
+	TweenService:Create(BuildMode.Materials, BuildModeTweenInfo, { Position = UDim2.new(1, -10, 1, -220) }):Play()
 end
 
 function module.CodesLogic()

@@ -19,7 +19,9 @@ TextLabel.TextSize = 32
 TextLabel.FontFace = Font.fromEnum(Enum.Font.FredokaOne)
 TextLabel.Parent = LoadingScreenGui
 
-task.wait(3)
+if not game:GetService("RunService"):IsStudio() then
+	task.wait(3)
+end
 
 if not game:IsLoaded() then
 	game.Loaded:Wait()
